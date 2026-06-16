@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EastWest KPI Grading System</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+</head>
+<body>
+  <main id="loginView" class="login-shell">
+    <section class="login-card">
+      <div class="brand-mark">KPI</div>
+      <h1>KPI Grading System</h1>
+      <p>Sign in using your Supabase Auth account.</p>
+
+      <label>Email</label>
+      <input id="loginEmail" type="email" placeholder="name@company.com" autocomplete="email" />
+
+      <label>Password</label>
+      <input id="loginPassword" type="password" placeholder="••••••••" autocomplete="current-password" />
+
+      <button id="loginBtn" class="primary-btn">Sign in</button>
+      <p id="loginMessage" class="message"></p>
+
+      <div class="demo-box">
+        <strong>Demo users</strong>
+        <span>executive.demo@ewhc.local / DemoPass123!</span>
+        <span>depthead.demo@ewhc.local / DemoPass123!</span>
+        <span>financehead.demo@ewhc.local / DemoPass123!</span>
+        <span>supervisor.demo@ewhc.local / DemoPass123!</span>
+        <span>teamlead.demo@ewhc.local / DemoPass123!</span>
+        <span>rankfile.demo@ewhc.local / DemoPass123!</span>
+        <span>rankfile2.demo@ewhc.local / DemoPass123!</span>
+      </div>
+    </section>
+  </main>
+
+  <main id="appView" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-mark small">KPI</div>
+        <div>
+          <strong>Grading</strong>
+          <span>Performance Portal</span>
+        </div>
+      </div>
+
+      <nav id="navMenu" class="nav-menu"></nav>
+
+      <button id="logoutBtn" class="ghost-btn">Sign out</button>
+    </aside>
+
+    <section class="content-shell">
+      <header class="topbar">
+        <div>
+          <h1 id="pageTitle">Dashboard</h1>
+          <p id="profileSummary">Loading profile...</p>
+        </div>
+        <div class="topbar-actions">
+          <select id="periodSelect"></select>
+          <button id="refreshBtn" class="soft-btn">Refresh</button>
+        </div>
+      </header>
+
+      <section id="adminActions" class="admin-actions hidden">
+        <button id="lockPeriodBtn" class="warning-btn">Lock selected period</button>
+        <button id="clonePeriodBtn" class="primary-btn compact">Clone previous quarter</button>
+      </section>
+
+      <section id="statusBar" class="status-bar hidden"></section>
+
+      <section id="dashboardCards" class="cards-grid"></section>
+
+      <section id="mainPanel" class="panel"></section>
+    </section>
+  </main>
+
+  <template id="scoreRowTemplate">
+    <tr>
+      <td data-field="employee"></td>
+      <td data-field="department"></td>
+      <td data-field="role"></td>
+      <td data-field="manager"></td>
+      <td data-field="score"></td>
+    </tr>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
